@@ -25,8 +25,14 @@ describe('Global Feed', () => {
               article.author.image
             )
 
+            // cy.findByRole('link', { name: article.author.username }).should(
+            //   'exist'
+            // )
+
             cy.findByRole('link', { name: article.author.username }).should(
-              'exist'
+              'have.attr',
+              'href',
+              `/@${article.author.username}`
             )
 
             cy.findByText(
